@@ -25,7 +25,7 @@ def do_quantitative(data_list):
    
     data_list.sort()
     middle = len(data_list) //  2
-    median = (data_list[middle] + data_list[~middle]) / 2
+    median = (float(data_list[middle]) + float(data_list[~middle])) / 2
     
     return min(data_list), max(data_list), median
 
@@ -104,5 +104,7 @@ def get_crime_data(input_srt = 'violent' ):
 
 
 if __name__ == '__main__':
+
+    print((get_crime_data('rape')))
 
     pass

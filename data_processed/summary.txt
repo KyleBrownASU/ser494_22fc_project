@@ -1,0 +1,9 @@
+GDP quantitative is (-2.59988835, 4.077159479, 2.2842317679999997)
+unempolyment quantitative is (3.6750000000000003, 9.608333333333333, 5.408333333333333)
+Violent crime quantitative is (366.7, 506.5, 431.9)
+property crime quantitative is (2109.9, 3618.3, 3214.6)
+rape quantitative is (29.9, 32.4, 27.7)
+
+
+
+# min, max, median

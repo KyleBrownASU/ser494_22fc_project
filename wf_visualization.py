@@ -75,6 +75,29 @@ def rape_vs_umemployment(rape_crime_list, unemployment_list):
     plt.savefig(filename)
     plt.close()
 
+def make_quantitative(gdp_data,crime_data,unemplyment_data,property_crime_data,rape_data):
+    output_list = []
+
+    min_data, max_data, median_data = do_quantitative(gdp_data)
+    intput_str = str("gdp quantitative is min = ", str(min_data) , " max = ", str(max_data), ' and median = ', str(median_data))
+    output_list.append(intput_str)
+
+  
+
+    min_data, max_data, median_data = do_quantitative(unemplyment_data)
+    input_str = str("unemplyment_data quantitative is min = ", str(min_data) , " max = ", str(max_data), ' and median = ', str(median_data))
+    output_list.append(input_str)
+
+
+
+    output_file = open("data_processed\summary.txt", 'w+')
+
+    for i in output_list:
+        print(i)
+        output_file.write(i)
+
+    output_file.close()
+
 
 
 
@@ -90,6 +113,8 @@ if __name__ == '__main__':
     violent_vs_gdp(crime_data, gdp_data)
     property_vs_gdp(property_crime_data, gdp_data)
     property_vs_umemployment(property_crime_data, unemplyment_data)
+
+    make_quantitative(gdp_data,crime_data,unemplyment_data,property_crime_data,rape_data)
 
    
     
