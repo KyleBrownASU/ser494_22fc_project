@@ -88,7 +88,6 @@ if __name__ == '__main__':
     rape_vs_umemployment(rape_data, unemplyment_data)
     violent_vs_umemployment(crime_data, unemplyment_data)
     violent_vs_gdp(crime_data, gdp_data)
-
     property_vs_gdp(property_crime_data, gdp_data)
     property_vs_umemployment(property_crime_data, unemplyment_data)
     
