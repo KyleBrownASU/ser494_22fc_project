@@ -17,6 +17,7 @@ def get_gdp_data():
     values_list = list[1]
     values_list = values_list.tolist()
     del values_list[0]
+    del values_list[0]
 
     return values_list
 
@@ -74,7 +75,7 @@ def get_crime_data(input_srt = 'violent' ):
     #print(crime.columns.values)
 
 
-    Violent_crime = crime[['Violent\ncrime2']].head(20).values.tolist()
+    Violent_crime = crime[['Violent \ncrime \nrate ']].head(20).values.tolist()
     rape_rate = crime[['Rape\n(legacy \ndefinition) \nrate4']].head(20).values.tolist()
     robbery_rate = crime[['Robbery \nrate ']].head(20).values.tolist()
     agg_assult_rate = crime[['Aggravated \nassault rate ']].head(20).values.tolist()
