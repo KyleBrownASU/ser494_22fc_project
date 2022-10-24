@@ -105,13 +105,26 @@ Last Updated Date	9/16/2022
 ### Transformation N
 **Description:** TODO
 
-**Soundness Justification:** TODO
-
-(duplicate above as many times as needed; remove this line when done)
+No trasnformations 
 
 
 ## Visualization
-### Visual N
-**Analysis:** TODO
+### Visual property_vs_gdp
+**Analysis:**  property crime has been going down for the last 20 years stright. This rate was uneffected by macroeconimc factors like gdp. This suggests that people dont commint crime for money 
 
-(duplicate above as many times as needed; remove this line when done)
+## Visualization
+### Visual property_vs_umemployment
+**Analysis:** property crime has been going down for the last 20 years stright. This rate was uneffected by macroeconimc factors like unemployment . This suggests that people dont commint crime even if they "need" to to survuve.
+
+## Visualization
+### Visual rape_vs_umemployment
+**Analysis:**  in this chart it appers that rape cases decrease with unemployment. This is the opposite as what i was expecting. Perhaps this means people only rape other people when they fell strong and secure. Or there could be no correlation.
+
+## Visualization
+### Visual violentCrime_vs_gdp
+**Analysis:** There does not appear to be any correlation between violent crime and gdp. Perhaps people that atack others are to "simple" to be effected by macro-economic factors. This does not explain the overall drop in violent crime. 
+
+
+## Visualization
+### Visual violentCrime_vs_unemployment
+**Analysis:** There does not appear to be any correlation between violent crime and gdp. Perhaps people that atack others are to "simple" to be effected by macro-economic factors. This does not explain the overall drop in violent crime. 
