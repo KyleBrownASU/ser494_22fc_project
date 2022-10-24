@@ -79,7 +79,7 @@ def make_quantitative(gdp_data,crime_data,unemplyment_data,property_crime_data,r
     output_list = []
 
     min_data, max_data, median_data = do_quantitative(gdp_data)
-    intput_str = str("gdp quantitative is min = ", str(min_data) , " max = ", str(max_data), ' and median = ', str(median_data))
+    intput_str = ("gdp quantitative is min = ", str(min_data) , " max = ", str(max_data), ' and median = ', str(median_data))
     output_list.append(intput_str)
 
   
@@ -114,7 +114,7 @@ if __name__ == '__main__':
     property_vs_gdp(property_crime_data, gdp_data)
     property_vs_umemployment(property_crime_data, unemplyment_data)
 
-    make_quantitative(gdp_data,crime_data,unemplyment_data,property_crime_data,rape_data)
+
 
    
     
