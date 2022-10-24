@@ -1,3 +1,4 @@
+from cProfile import label
 import matplotlib.pyplot as plt
 import numpy as np
 from wf_dataprocessing import *
@@ -20,11 +21,27 @@ def violent_vs_gdp(violent_crimes_list, gdp_list):
 
     plt.savefig(filename)
 
-    
+def violent_vs_umemployment(violent_crimes_list, unemployment_list):
+    crimes = np.array(violent_crimes_list)
+    employment = np.array(unemployment_list)
+
+    plt.plot(global_years_names_list, crimes, c ='black', label = 'Crime Rate')
+    plt.plot(global_years_names_list, employment, c = 'green', label = 'Percent unemployed')
+    plt.legend()
+    plt.title("unemployment rate vs crime rate")
+    plt.xlabel('Years')
+    filename = 'visuals/violentCrime_vs_unemployment.png'
+
+    plt.savefig(filename)
+
+    pass
 
 if __name__ == '__main__':
     gdp_data = get_gdp_data()
     crime_data = get_crime_data()
+    unemplyment_data = get_unemplyment_data()
+
+    violent_vs_umemployment(crime_data, unemplyment_data)
 
     violent_vs_gdp(crime_data, gdp_data)
 
