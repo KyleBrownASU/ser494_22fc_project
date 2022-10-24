@@ -1,7 +1,7 @@
 #### SERX94: Exploratory Data Munging and Visualization
-#### TODO (title)
-#### TODO (Kyle Brown)
-#### TODO (10/23/2022)
+#### Campus Crime Rates
+#### (Kyle Brown)
+#### (10/23/2022)
 
 ## Basic Questions
 **Dataset Author(s):** FBI UCR
