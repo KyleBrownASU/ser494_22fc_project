@@ -92,18 +92,10 @@ def crime_data(input_srt = 'violent' ):
     elif 'property' in input_srt:
         return global_years_names_list, prop_crime_rate
 
-    
-
-   
-
-    
 
 
 
 
 if __name__ == '__main__':
-    
-    data, data1 = crime_data()
-    print(data)
-    print(data1)
+
     pass
