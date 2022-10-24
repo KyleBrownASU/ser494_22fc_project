@@ -36,7 +36,6 @@ def violent_vs_umemployment(violent_crimes_list, unemployment_list):
     plt.savefig(filename)
     plt.close()
 
-    pass
 
 def property_vs_gdp(property_crime_list, gdp_list):
     property = np.array(property_crime_list)
@@ -51,8 +50,6 @@ def property_vs_gdp(property_crime_list, gdp_list):
     plt.savefig(filename)
     plt.close()
 
-    pass
-
 def property_vs_umemployment(property_crime_list, unemployment_list):
     property = np.array(property_crime_list)
     employment = np.array(unemployment_list)
@@ -61,25 +58,38 @@ def property_vs_umemployment(property_crime_list, unemployment_list):
     plt.plot(global_years_names_list, employment, c = 'green', label = 'Percent unemployed')
 
     plt.legend()
-    filename = 'visuals/property_vs_property_vs_umemployment.png'
+    filename = 'visuals/property_vs_umemployment.png'
 
     plt.savefig(filename)
     plt.close()
-    
-    pass
+
+def rape_vs_umemployment(rape_crime_list, unemployment_list):
+    rape = np.array(rape_crime_list)
+    employment = np.array(unemployment_list)
+
+    plt.plot(global_years_names_list, rape, c = 'black', label = 'Rape per capita Rate')
+    plt.plot(global_years_names_list, employment, c = 'green', label = 'Percent unemployed')
+    plt.legend()
+
+    filename = 'visuals/rape_vs_umemployment.png'
+    plt.savefig(filename)
+    plt.close()
+
+
+
 
 if __name__ == '__main__':
     gdp_data = get_gdp_data()
     crime_data = get_crime_data()
     unemplyment_data = get_unemplyment_data()
     property_crime_data = get_crime_data('property')
+    rape_data = get_crime_data('rape')
 
+    rape_vs_umemployment(rape_data, unemplyment_data)
     violent_vs_umemployment(crime_data, unemplyment_data)
-
     violent_vs_gdp(crime_data, gdp_data)
 
     property_vs_gdp(property_crime_data, gdp_data)
     property_vs_umemployment(property_crime_data, unemplyment_data)
     
 
-    pass
