@@ -23,7 +23,7 @@ def get_gdp_data():
 
 
 
-def unemplyment_data():
+def get_unemplyment_data():
     us_unemplyment_exl = 'data_original\\SeriesReport-uneployment.xlsx'
     us_unemplyment = pd.read_excel(us_unemplyment_exl,header=11 )
 
