@@ -18,7 +18,7 @@ def get_gdp_data():
     values_list = values_list.tolist()
     del values_list[0]
 
-    return global_years_names_list, values_list
+    return values_list
 
 
 
@@ -61,11 +61,11 @@ def unemplyment_data():
 
    
 
-    return global_years_names_list, result_list
+    return result_list
 
     
 
-def crime_data(input_srt = 'violent' ):
+def get_crime_data(input_srt = 'violent' ):
 
     input_srt = input_srt.lower()
     crime_exl = 'data_original\\table-1.xls'
@@ -73,7 +73,7 @@ def crime_data(input_srt = 'violent' ):
 
     #print(crime.columns.values)
 
-    Population = crime[['Population1']].head(20).values.tolist()
+
     Violent_crime = crime[['Violent\ncrime2']].head(20).values.tolist()
     rape_rate = crime[['Rape\n(legacy \ndefinition) \nrate4']].head(20).values.tolist()
     robbery_rate = crime[['Robbery \nrate ']].head(20).values.tolist()
@@ -82,15 +82,15 @@ def crime_data(input_srt = 'violent' ):
 
 
     if 'violent' in input_srt:
-        return global_years_names_list, Violent_crime
+        return  Violent_crime
     elif 'rape' in input_srt:
-        return global_years_names_list, rape_rate
+        return  rape_rate
     elif 'robbery' in input_srt:
-        return global_years_names_list, robbery_rate
+        return  robbery_rate
     elif 'assult' in input_srt:
-        return global_years_names_list, agg_assult_rate
+        return  agg_assult_rate
     elif 'property' in input_srt:
-        return global_years_names_list, prop_crime_rate
+        return  prop_crime_rate
 
 
 
