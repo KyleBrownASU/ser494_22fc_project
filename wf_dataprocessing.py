@@ -3,27 +3,70 @@ import pandas as pd
 import glob
 
 
-#form1 = ['2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2017', '2018', '2019',] # 0,1,2,3,4,9
-#form2 = ['2013','2014','2015'] # 0,1,2,3,4,10
-
-state_names = ["Alaska", "Alabama", "Arizona", "Arkansas", "California", "Colorado", "Connecticut",
-    "Delaware", "Florida", "Georgia", "Hawaii", "Iowa", "Idaho", "Illinois", "Indiana", "Kansas", "Kentucky", "Louisiana", "Massachusetts",
-    "Maryland", "Maine", "Michigan", "Minnesota", "Missouri", "Mississippi", "Montana", "North Carolina", "North Dakota", "Nebraska", "New Hampshire",
-    "New Jersey", "New Mexico", "Nevada", "New York", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
-    "South Dakota", "Tennessee", "Texas", "Utah", "Virginia", "Vermont", "Washington", "Wisconsin", "West Virginia", "Wyoming"]
-
-alabamba = []
-    
-
 def start():
-    
+    alabama = [],
+    alaska = [],
+    arizona = [],
+    arkansas = [],
+    california = [],
+    colorado = [],
+    connecticut = [],
+    delaware = [],
+    florida = [],
+    georgia = [],
+    illinois = [],
+    indiana = [],
+    iowa = [],
+    kansas = [],
+    kentucky = [],
+    louisiana = [],
+    maine = [],
+    maryland = [],
+    massachusetts = [],
+    michigan = [],
+    minnesota = [],
+    mississippi = [],
+    missouri = [],
+    montana = [],
+    nebraska = [],
+    nevada = [],
+    newhampshire = [],
+    newjersey = [],
+    newmexico = [],
+    newyork = [],
+    northcarolina = [],
+    northdakota = [],
+    ohio = [],
+    oklahoma = [],
+    pennsylvania = [],
+    rhodeisland = [], 
+    southcarolina = [], 
+    southdakota = [],  
+    tennessee = [],  
+    texas = [], 
+    utah = [],
+    vermont = [], 
+    virginia = [],   
+    washington = [],  
+    westvirginia = [],
+    wisconsin = [],
+    oregon = [],
+
+
+    state_dict = {"alabama": alabama, "alaska" :alaska, "arizona" :arizona , "arkansas" :arkansas, "california" :california , "colorado" : colorado, "connecticut" :connecticut ,"delaware" : delaware,
+    "florida" : florida, "georgia" : georgia, "illinois" :illinois , "indiana" :indiana , "iowa" :iowa , "kansas" :kansas , "kentucky" :kentucky , 'louisiana' : louisiana, "maine" :maine ,
+    "maryland" :maryland , "massachusetts" :massachusetts , "michigan" :michigan ,  "minnesota" :minnesota , "mississippi" : mississippi, "missouri" : missouri , "montana" : montana, 
+    "nebraska" : nebraska, "nevada" :nevada , "newhampshire" :newhampshire , "newjersey" : newjersey, "newmexico" :newmexico , "newyork" :newyork , "northcarolina" :northcarolina , "northdakota" :northdakota ,
+    "ohio" :ohio , "oklahoma" :oklahoma , "pennsylvania" :pennsylvania , "rhodeisland" :rhodeisland , "southcarolina" : southcarolina, "southdakota" :southdakota , "tennessee" :tennessee , 
+    "texas" : texas, "utah" : utah, "vermont" : vermont,"virginia" :virginia ,"washington" :washington , "westvirginia" :westvirginia,"wisconsin" :wisconsin, "oregon" :oregon, "massachusettes" :massachusetts   } 
+
 
     path = os.getcwd()
     path = path + '\data_original'
     csv_files = glob.glob(os.path.join(path, "*.xls"))
     #print(csv_files)
     #print(path)
-    state_data_list = []
+    
 
     for file in csv_files:
         
@@ -51,10 +94,6 @@ def start():
             if pd.notnull(value):
                 state_index_list.append(index)
 
-        #print(state_index_list)
-
-        #print(df)
-
 
         for int in range(len(state_index_list)-2):
             start_val = state_index_list[int]
@@ -81,16 +120,18 @@ def start():
 
             year = (file[-8:-4])
             #print(state_name, student_pop_sum, violent_crime_sum, prop_crime_sum, year)
-            print(state_name)
-        print("")
-
             
+            state = state_dict.get(state_name)
+            #print(state_name, year)
+            state = state[0]
+            #print((state))
+            data = [year, student_pop_sum, violent_crime_sum, prop_crime_sum]
+            state.append(data)
+            #print(state)
 
+    result_list = list(state_dict.values())
 
-       
-    
-    #print(len(state_names))
-
+    return( result_list)
     
 
 
