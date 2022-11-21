@@ -19,9 +19,6 @@ class state_data():
     violent_crime_list : list= field(init=False)
     prop_crime_list : list = field(init=False)
 
-
-
-
 def start():
     path = os.getcwd()
     path = path + '\data_original'
@@ -42,26 +39,22 @@ def start():
         rows, cols = df.shape
 
         for index, row in df.iterrows():
-            value = (df.loc[index].iat[0])
+            value = df.loc[index].iat[0]
             if pd.notnull(value):
                 #print(len(value), value)
                 if len(value) > 20:
                     df.drop(index, inplace=True)
 
-        
 
+        state_index_list = []
+        for index, row in df.iterrows():
+            value = df.loc[index].iat[0]
+            if pd.notnull(value):
+                state_index_list.append(index)
 
-        #print(f, dict.keys())
-        
-        # print the location and filename
-        #print('Location:', f)
-        #print('File Name:', f.split("\\")[-1])
-        
+        print(state_index_list)
 
-        # print the content
-        #print('Content:')
-        #print(df)
-        #print()
+       
     
     #print(len(state_names))
 
