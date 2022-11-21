@@ -29,17 +29,27 @@ def start():
     #print(csv_files)
     #print(path)
 
-    for f in csv_files:
+    for file in csv_files:
         
         # read the csv file
-        if '2013' in f or '2014' in f or '2015' in f:
+        if '2013' in file or '2014' in file or '2015' in file:
 
-            df = pd.read_excel(f, header = 3, usecols=[0,1,2,3,4,10 ])
+            df = pd.read_excel(file, header = 3, usecols=[0,1,2,3,4,10 ])
         else:
-            df = pd.read_excel(f, header = 3, usecols=[0,1,2,3,4,9])
+            df = pd.read_excel(file, header = 3, usecols=[0,1,2,3,4,9])
         dict = df.to_dict()
 
-        #print(df.shape)
+        rows, cols = df.shape
+
+        for index, row in df.iterrows():
+            value = (df.loc[index].iat[0])
+            if pd.notnull(value):
+                #print(len(value), value)
+                if len(value) > 20:
+                    df.drop(index, inplace=True)
+
+        
+
 
         #print(f, dict.keys())
         
