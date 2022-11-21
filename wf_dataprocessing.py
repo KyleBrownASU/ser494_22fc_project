@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import glob
+from dataclasses import dataclass, field
 
 #form1 = ['2005', '2006', '2007', '2008', '2009', '2010', '2011', '2012', '2017', '2018', '2019',] # 0,1,2,3,4,9
 #form2 = ['2013','2014','2015'] # 0,1,2,3,4,10
@@ -10,6 +11,16 @@ state_names = ["Alaska", "Alabama", "Arizona", "Arkansas", "California", "Colora
     "Maryland", "Maine", "Michigan", "Minnesota", "Missouri", "Mississippi", "Montana", "North Carolina", "North Dakota", "Nebraska", "New Hampshire",
     "New Jersey", "New Mexico", "Nevada", "New York", "Ohio", "Oklahoma", "Oregon", "Pennsylvania", "Rhode Island", "South Carolina",
     "South Dakota", "Tennessee", "Texas", "Utah", "Virginia", "Vermont", "Washington", "Wisconsin", "West Virginia", "Wyoming"]
+
+@dataclass
+class state_data():
+    name: str
+    student_pop_list : list= field(init=False)
+    violent_crime_list : list= field(init=False)
+    prop_crime_list : list = field(init=False)
+
+
+
 
 def start():
     path = os.getcwd()
@@ -28,7 +39,7 @@ def start():
             df = pd.read_excel(f, header = 3, usecols=[0,1,2,3,4,9])
         dict = df.to_dict()
 
-        print(df.shape)
+        #print(df.shape)
 
         #print(f, dict.keys())
         
@@ -45,12 +56,6 @@ def start():
     #print(len(state_names))
 
     
-   
-    
-
-
-
-
 
 
 if __name__ == '__main__':
