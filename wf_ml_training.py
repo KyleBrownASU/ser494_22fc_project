@@ -9,4 +9,4 @@ def train(x_train, x_test, y_train, y_test):
     y_train_pred = lr.predict(x_train)
     y_test_pred = lr.predict(x_test)
     
-    return y_train_pred, y_test_pred
+    return y_train_pred, y_test_pred, lr
