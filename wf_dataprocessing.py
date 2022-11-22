@@ -136,8 +136,11 @@ def start():
     writer = csv.writer(my_file)
     writer.writerow(['year', 'student_pop_sum', 'prop_crime_sum', 'violent_crime_sum'])
 
-    for item in result_list:
-        writer.writerow(item)
+    for i in result_list:
+        i = i[0]
+        for y in i:
+            print(y)
+            writer.writerow(y)
     my_file.close()
     return( result_list)
     
