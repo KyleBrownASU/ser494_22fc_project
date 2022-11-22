@@ -139,8 +139,9 @@ def start():
     for i in result_list:
         i = i[0]
         for y in i:
-            print(y)
-            writer.writerow(y)
+            data0, data1, data2, data3 = y
+            input_list = [data0,data1,data2,data3]
+            writer.writerow(input_list)
     my_file.close()
     return( result_list)
     
