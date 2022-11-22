@@ -1,6 +1,7 @@
 import os
 import pandas as pd
 import glob
+import csv
 
 
 def start():
@@ -125,12 +126,19 @@ def start():
             #print(state_name, year)
             state = state[0]
             #print((state))
-            data = [year, student_pop_sum, violent_crime_sum, prop_crime_sum]
+            data = [year, student_pop_sum, prop_crime_sum, violent_crime_sum]
             state.append(data)
             #print(state)
 
     result_list = list(state_dict.values())
 
+    my_file = open('data_processed\output.csv', 'w')
+    writer = csv.writer(my_file)
+    writer.writerow(['year', 'student_pop_sum', 'prop_crime_sum', 'violent_crime_sum'])
+
+    for item in result_list:
+        writer.writerow(item)
+    my_file.close()
     return( result_list)
     
 
