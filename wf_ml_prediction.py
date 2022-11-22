@@ -1,9 +1,4 @@
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error, r2_score
 import pandas as pd
-from wf_dataprocessing import *
-from wf_ml_training import *
 import pickle
 
 
@@ -16,8 +11,13 @@ def make_pred():
     data = data.values.reshape(1,-1)
     pred = model.predict(data)
 
+    print(pred) # expected was 14
 
-    print(pred)
+    data = [2006,187477,2687]
+    data = pd.DataFrame(data)
+    data = data.values.reshape(1,-1)
+    pred = model.predict(data)
+    print(pred) #expected was 110 
 
 
 if __name__ == '__main__':
