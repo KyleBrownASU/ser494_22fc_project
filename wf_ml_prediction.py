@@ -11,13 +11,13 @@ def make_pred():
     data = data.values.reshape(1,-1)
     pred = model.predict(data)
 
-    print(pred) # expected was 14
+    print(pred) # expected was 14 [19.48717727]
 
     data = [2006,187477,2687]
     data = pd.DataFrame(data)
     data = data.values.reshape(1,-1)
     pred = model.predict(data)
-    print(pred) #expected was 110 
+    print(pred) #expected was 110 [78.58852103]
 
 
 if __name__ == '__main__':
