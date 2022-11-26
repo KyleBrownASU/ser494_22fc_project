@@ -60,7 +60,10 @@ def start():
     "nebraska" : nebraska, "nevada" :nevada , "newhampshire" :newhampshire , "newjersey" : newjersey, "newmexico" :newmexico , "newyork" :newyork , "northcarolina" :northcarolina , "northdakota" :northdakota ,
     "ohio" :ohio , "oklahoma" :oklahoma , "pennsylvania" :pennsylvania , "rhodeisland" :rhodeisland , "southcarolina" : southcarolina, "southdakota" :southdakota , "tennessee" :tennessee , 
     "texas" : texas, "utah" : utah, "vermont" : vermont,"virginia" :virginia ,"washington" :washington , "westvirginia" :westvirginia,"wisconsin" :wisconsin, "oregon" :oregon, "massachusettes" :massachusetts   } 
-
+    
+    my_file = open('data_processed\output.csv', 'w', newline = '')
+    writer = csv.writer(my_file)
+    writer.writerow(['year', 'student_pop_sum', 'prop_crime_sum', 'violent_crime_sum'])
 
     path = os.getcwd()
     path = path + '\data_original'
@@ -68,9 +71,7 @@ def start():
     #print(csv_files)
     #print(path)
 
-    my_file = open('data_processed\output.csv', 'w', newline = '')
-    writer = csv.writer(my_file)
-    writer.writerow(['year', 'student_pop_sum', 'prop_crime_sum', 'violent_crime_sum'])
+    
     
 
     for file in csv_files:
@@ -99,8 +100,26 @@ def start():
             if pd.notnull(value):
                 state_index_list.append(index)
 
+        for index, row in df.iterrows():
+           
+            student_pop = df.loc[index].iat[3]
+            violent_crime = df.loc[index].iat[4]
+            prop_crime = df.loc[index].iat[5]
 
-        for int in range(len(state_index_list)-2):
+            year = (file[-8:-4])
+
+            if pd.notnull(student_pop) and pd.notnull(violent_crime) and pd.notnull(prop_crime):
+
+                data = [year, student_pop, prop_crime, violent_crime]
+                writer.writerow(data)
+
+
+
+
+        
+
+
+        '''for int in range(len(state_index_list)-2):
             start_val = state_index_list[int]
             state_name_start = df.loc[start_val].iat[0]
             state_name = ''.join([i for i in state_name_start if not i.isdigit()])
@@ -134,7 +153,7 @@ def start():
             writer.writerow(data)
             #print(data)
             state.append(data)
-            #print(state)
+            #print(state)'''
 
     result_list = list(state_dict.values())
     '''
