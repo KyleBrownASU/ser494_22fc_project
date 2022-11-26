@@ -2,12 +2,13 @@ import os
 import pandas as pd
 import glob
 import csv
+from wf_dataprocessing2 import *
 
 
 def start():
     my_file = open('data_processed\output.csv', 'w', newline = '')
     writer = csv.writer(my_file)
-    writer.writerow(['year', 'student_pop_sum', 'prop_crime_sum', 'violent_crime_sum'])
+    writer.writerow(['year', 'student_pop_sum', 'prop_crime_sum', 'gdp', 'unemployment' , 'violent_crime_sum'])
 
     path = os.getcwd()
     path = path + '\data_original'
@@ -29,18 +30,22 @@ def start():
                 #print(len(value), value)
                 if len(value) > 20:
                     df.drop(index, inplace=True)
-
+        
+        year = (file[-8:-4])
+        gdp, unemployment = get_year_data(year)
 
         for index, row in df.iterrows():        
             student_pop = df.loc[index].iat[3]
             violent_crime = df.loc[index].iat[4]
             prop_crime = df.loc[index].iat[5]
 
-            year = (file[-8:-4])
+            
+
+            
 
             if pd.notnull(student_pop) and pd.notnull(violent_crime) and pd.notnull(prop_crime):
 
-                data = [year, student_pop, prop_crime, violent_crime]
+                data = [year, student_pop, prop_crime, gdp, unemployment, violent_crime]
                 writer.writerow(data)
 
     my_file.close()

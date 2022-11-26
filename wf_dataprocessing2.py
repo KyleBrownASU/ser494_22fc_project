@@ -4,7 +4,7 @@ global_years_names_list = [2000, 2001 ,2002 ,2003 ,2004 ,2005 ,2006 ,2007 ,2008 
 
 def get_gdp_data():
 
-    us_gdp_growth_exl = "data_original\\us-gdp-growth.xlsx"
+    us_gdp_growth_exl = "data_original\\old\\us-gdp-growth.xlsx"
 
     us_gdp_growth = pd.read_excel(us_gdp_growth_exl)
 
@@ -30,7 +30,7 @@ def do_quantitative(data_list):
     return min(data_list), max(data_list), median
 
 def get_unemplyment_data():
-    us_unemplyment_exl = 'data_original\\SeriesReport-uneployment.xlsx'
+    us_unemplyment_exl = 'data_original\\old\\SeriesReport-uneployment.xlsx'
     us_unemplyment = pd.read_excel(us_unemplyment_exl,header=11 )
 
     vals_list = us_unemplyment.values.tolist()
@@ -75,7 +75,7 @@ def get_unemplyment_data():
 def get_crime_data(input_srt = 'violent' ):
 
     input_srt = input_srt.lower()
-    crime_exl = 'data_original\\table-1.xls'
+    crime_exl = 'data_original\\old\\table-1.xls'
     crime = pd.read_excel(crime_exl, header=3)
 
     #print(crime.columns.values)
@@ -99,12 +99,39 @@ def get_crime_data(input_srt = 'violent' ):
     elif 'property' in input_srt:
         return  prop_crime_rate
 
+def get_year_data(year):
+    if year == '2000' : index = 0
+    elif year == '2001' : index = 1
+    elif year == '2002' : index = 2
+    elif year == '2003' : index = 3
+    elif year == '2004' : index = 4
+    elif year == '2005' : index = 5
+    elif year == '2006' : index = 6
+    elif year == '2007' : index = 7
+    elif year == '2008' : index = 8
+    elif year == '2009' : index = 9
+    elif year == '2010' : index = 10
+    elif year == '2011' : index = 11
+    elif year == '2012' : index = 12
+    elif year == '2013' : index = 13
+    elif year == '2014' : index = 14
+    elif year == '2015' : index = 15
+    elif year == '2016' : index = 16
+    elif year == '2017' : index = 17
+    elif year == '2018' : index = 18
+    elif year == '2019' : index = 19
+
+    gdp_list = get_gdp_data()
+    unemplyment_list = get_unemplyment_data()
+
+    return gdp_list[index], unemplyment_list[index]
+
 
 
 
 
 if __name__ == '__main__':
 
-    print((get_crime_data('rape')))
+    print(get_year_data('2015'))
 
     pass
