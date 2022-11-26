@@ -67,6 +67,10 @@ def start():
     csv_files = glob.glob(os.path.join(path, "*.xls"))
     #print(csv_files)
     #print(path)
+
+    my_file = open('data_processed\output.csv', 'w', newline = '')
+    writer = csv.writer(my_file)
+    writer.writerow(['year', 'student_pop_sum', 'prop_crime_sum', 'violent_crime_sum'])
     
 
     for file in csv_files:
@@ -127,11 +131,13 @@ def start():
             state = state[0]
             #print((state))
             data = [year, student_pop_sum, prop_crime_sum, violent_crime_sum]
+            writer.writerow(data)
+            #print(data)
             state.append(data)
             #print(state)
 
     result_list = list(state_dict.values())
-
+    '''
     my_file = open('data_processed\output.csv', 'w')
     writer = csv.writer(my_file)
     writer.writerow(['year', 'student_pop_sum', 'prop_crime_sum', 'violent_crime_sum'])
@@ -142,6 +148,7 @@ def start():
             data0, data1, data2, data3 = y
             input_list = [data0,data1,data2,data3]
             writer.writerow(input_list)
+    '''
     my_file.close()
     return( result_list)
     
