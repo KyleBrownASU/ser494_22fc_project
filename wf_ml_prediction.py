@@ -84,12 +84,34 @@ def var_prop_crime():
 
     return x, y
 
+def var_gdp():
+    with open('models/model_pickle', 'rb') as f:
+        model = pickle.load(f)
+
+    local_data = [2011, 13271, 129, -2.599888, 6.208646]
+    y = []
+    x = []
+
+    while local_data[3] < 3.483220:
+        x.append(local_data[3])
+        data = pd.DataFrame(local_data)
+        data = data.values.reshape(1,-1)
+        pred = model.predict(data)
+        
+        y.append(pred[0])
+
+
+        local_data[3] += 0.001
+
+    return x, y
+
 
 
 if __name__ == '__main__':
-    x, y = var_prop_crime()
-    print(x)
-    print(y)
+    x, y = var_gdp()
+    #print(x)
+    #print(y)
+    print(len(y))
     av_data = [2011, 13271, 129, 1.934765, 6.208646]
     
 
