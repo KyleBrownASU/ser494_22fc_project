@@ -45,19 +45,21 @@ def var_student_pop():
         model = pickle.load(f)
 
     local_data = [2011, 12, 129, 1.934765, 6.208646]
-    results = []
+    y = []
+    x = []
 
     while local_data[1] < 127583:
+        x.append(local_data[1])
         data = pd.DataFrame(local_data)
         data = data.values.reshape(1,-1)
         pred = model.predict(data)
         
-        results.append(pred[0])
+        y.append(pred[0])
 
 
         local_data[1] +=10
 
-    return results
+    return x, y
 
 
 
