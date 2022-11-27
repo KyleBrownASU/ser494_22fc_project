@@ -147,6 +147,18 @@ def make_var_prop_crime(x, y):
     plt.savefig(filename)
     plt.close()
 
+def make_var_unemployment(x, y):
+    x = np.array(x)
+    y = np.array(y)
+
+    plt.scatter(x, y )
+    plt.title("unemployment vs Estimated violent crime")
+    plt.xlabel("unemployment")
+    plt.ylabel("Estimated violent crime ")
+    filename = 'visuals/unemployment_vs_Estimated_violent_crime.png'
+    plt.savefig(filename)
+    plt.close()
+
 
 
 if __name__ == '__main__':
@@ -173,5 +185,7 @@ if __name__ == '__main__':
     make_student_pop(x ,y)
     x, y = var_prop_crime()
     make_var_prop_crime(x, y)
+    x, y = var_unemployment()
+    make_var_unemployment(x, y)
 
 
