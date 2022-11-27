@@ -5,7 +5,7 @@ import pandas as pd
 
 def train(x_train, x_test, y_train, y_test):
     lr = LinearRegression()
-    lr.fit(x_train, y_train)
+    lr.fit(x_train.values, y_train.values)
     y_train_pred = lr.predict(x_train)
     y_test_pred = lr.predict(x_test)
     

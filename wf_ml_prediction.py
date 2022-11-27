@@ -40,9 +40,30 @@ def var_year():
 
     return results
 
+def var_student_pop():
+    with open('models/model_pickle', 'rb') as f:
+        model = pickle.load(f)
+
+    local_data = [2011, 12, 129, 1.934765, 6.208646]
+    results = []
+
+    while local_data[1] < 127583:
+        data = pd.DataFrame(local_data)
+        data = data.values.reshape(1,-1)
+        pred = model.predict(data)
+        
+        results.append(pred[0])
+
+
+        local_data[1] +=10
+
+    return results
+
+
+
 
 if __name__ == '__main__':
-    print(var_year())
+    print(len(var_student_pop()))
     av_data = [2011, 13271, 129, 1.934765, 6.208646]
     
 

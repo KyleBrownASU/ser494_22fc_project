@@ -9,7 +9,7 @@ import numpy as np
 def func():
     start()
     data = pd.read_csv('data_processed\output.csv')
-    print(data.iloc[:, 0:6].apply(np.average))
+    #print(data.iloc[:, 0:6].apply(np.average))
 
     y= data['violent_crime_sum']
     x = data.drop('violent_crime_sum', axis= 1)
