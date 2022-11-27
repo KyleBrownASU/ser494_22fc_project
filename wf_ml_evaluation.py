@@ -4,10 +4,13 @@ import pandas as pd
 from wf_dataprocessing import *
 from wf_ml_training import *
 import pickle
+import numpy as np
 
 def func():
     start()
     data = pd.read_csv('data_processed\output.csv')
+    print(data.iloc[:, 0:6].apply(np.average))
+
     y= data['violent_crime_sum']
     x = data.drop('violent_crime_sum', axis= 1)
 
@@ -39,3 +42,30 @@ def func():
 if __name__ == '__main__':
     func()
     
+
+'''
+mean
+year                  2011.969277
+student_pop_sum      13271.088578
+prop_crime_sum         129.383300
+gdp                      1.934765
+unemployment             6.208646
+violent_crime_sum        4.914148
+
+min 
+year                 2005.000000
+student_pop_sum        12.000000
+prop_crime_sum          0.000000
+gdp                    -2.599888
+unemployment            3.675000
+violent_crime_sum       0.000000
+
+max
+year                   2019.000000
+student_pop_sum      127582.000000
+prop_crime_sum         1358.000000
+gdp                       3.483220
+unemployment              9.608333
+violent_crime_sum       114.000000
+
+'''
