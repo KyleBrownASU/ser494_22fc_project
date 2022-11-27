@@ -123,6 +123,18 @@ def make_var_gdp(x, y):
     plt.savefig(filename)
     plt.close()
 
+def make_student_pop(x, y):
+    x = np.array(x)
+    y = np.array(y)
+
+    plt.scatter(x, y )
+    plt.title("student population vs Estimated violent crime")
+    plt.xlabel("student population")
+    plt.ylabel("Estimated violent crime ")
+    filename = 'visuals/student_pop_vs_Estimated_violent_crime.png'
+    plt.savefig(filename)
+    plt.close()
+
 
 
 if __name__ == '__main__':
@@ -145,4 +157,7 @@ if __name__ == '__main__':
 
     x, y = var_gdp()
     make_var_gdp(x, y)
+    x, y = var_student_pop()
+    make_student_pop(x ,y)
+
 
