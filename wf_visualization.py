@@ -111,8 +111,18 @@ def make_var_year(x, y):
     plt.savefig(filename)
     plt.close()
 
+def make_var_gdp(x, y):
+    x = np.array(x)
+    y = np.array(y)
 
-    pass
+    plt.scatter(x, y )
+    plt.title("GDP vs Estimated violent crime")
+    plt.xlabel("Gdp")
+    plt.ylabel("Estimated violent crime ")
+    filename = 'visuals/GDP_vs_Estimated_violent_crime.png'
+    plt.savefig(filename)
+    plt.close()
+
 
 
 if __name__ == '__main__':
@@ -131,6 +141,8 @@ if __name__ == '__main__':
     func()
 
     x, y = var_year()
-
     make_var_year(x, y)
+
+    x, y = var_gdp()
+    make_var_gdp(x, y)
 
