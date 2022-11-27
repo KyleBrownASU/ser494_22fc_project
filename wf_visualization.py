@@ -1,7 +1,8 @@
-from cProfile import label
 import matplotlib.pyplot as plt
 import numpy as np
 from wf_dataprocessing2 import *
+from wf_ml_evaluation import func
+from wf_ml_prediction import var_gdp, var_prop_crime, var_student_pop, var_unemployment, var_year
 
 
 global_years_names_list = [2000, 2001 ,2002 ,2003 ,2004 ,2005 ,2006 ,2007 ,2008 ,2009 ,2010 ,2011 ,2012 ,2013 ,2014 ,2015 ,2016 ,2017 ,2018 ,2019]
@@ -98,7 +99,20 @@ def make_quantitative(gdp_data,crime_data,unemplyment_data,property_crime_data,r
 
     output_file.close()
 
+def make_var_year(x, y):
+    x = np.array(x)
+    y = np.array(y)
 
+    plt.scatter(x, y )
+    plt.title("Year vs Estimated violent crime")
+    plt.xlabel("Year")
+    plt.ylabel("Estimated violent crime ")
+    filename = 'visuals/Year_vs_Estimated_violent_crime.png'
+    plt.savefig(filename)
+    plt.close()
+
+
+    pass
 
 
 if __name__ == '__main__':
@@ -108,8 +122,15 @@ if __name__ == '__main__':
     property_crime_data = get_crime_data('property')
     rape_data = get_crime_data('rape')
 
-    rape_vs_umemployment(rape_data, unemplyment_data)
-    violent_vs_umemployment(crime_data, unemplyment_data)
-    violent_vs_gdp(crime_data, gdp_data)
-    property_vs_gdp(property_crime_data, gdp_data)
-    property_vs_umemployment(property_crime_data, unemplyment_data)
+    #rape_vs_umemployment(rape_data, unemplyment_data)
+    #violent_vs_umemployment(crime_data, unemplyment_data)
+    #violent_vs_gdp(crime_data, gdp_data)
+    #property_vs_gdp(property_crime_data, gdp_data)
+    #property_vs_umemployment(property_crime_data, unemplyment_data)
+    
+    func()
+
+    x, y = var_year()
+
+    make_var_year(x, y)
+

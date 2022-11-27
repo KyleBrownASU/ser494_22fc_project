@@ -1,5 +1,6 @@
 from wf_dataprocessing import *
 from wf_visualization import *
+from wf_ml_evaluation import func
 
 
 if __name__ == '__main__':
@@ -14,5 +15,7 @@ if __name__ == '__main__':
     violent_vs_gdp(crime_data, gdp_data)
     property_vs_gdp(property_crime_data, gdp_data)
     property_vs_umemployment(property_crime_data, unemplyment_data)
+
+    func()
 
     
