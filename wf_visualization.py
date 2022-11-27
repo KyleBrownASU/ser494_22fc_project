@@ -187,5 +187,3 @@ if __name__ == '__main__':
     make_var_prop_crime(x, y)
     x, y = var_unemployment()
     make_var_unemployment(x, y)
-
-
