@@ -24,21 +24,23 @@ def var_year():
     with open('models/model_pickle', 'rb') as f:
         model = pickle.load(f)
 
-    results = []
+    y = []
+    x = []
     year = 2005
     local_data = [year, 13271, 129, 1.934765, 6.208646]
     
     while local_data[0] < 2020:
+        x.append(local_data[0])
         data = pd.DataFrame(local_data)
         data = data.values.reshape(1,-1)
         pred = model.predict(data)
         
-        results.append(pred[0])
+        y.append(pred[0])
         
         local_data[0] +=1
 
 
-    return results
+    return x, y
 
 def var_student_pop():
     with open('models/model_pickle', 'rb') as f:
@@ -61,11 +63,33 @@ def var_student_pop():
 
     return x, y
 
+def var_prop_crime():
+    with open('models/model_pickle', 'rb') as f:
+        model = pickle.load(f)
+
+    local_data = [2011, 13271, 0, 1.934765, 6.208646]
+    y = []
+    x = []
+
+    while local_data[2] < 1358:
+        x.append(local_data[2])
+        data = pd.DataFrame(local_data)
+        data = data.values.reshape(1,-1)
+        pred = model.predict(data)
+        
+        y.append(pred[0])
+
+
+        local_data[2] += 1
+
+    return x, y
 
 
 
 if __name__ == '__main__':
-    print(len(var_student_pop()))
+    x, y = var_prop_crime()
+    print(x)
+    print(y)
     av_data = [2011, 13271, 129, 1.934765, 6.208646]
     
 
