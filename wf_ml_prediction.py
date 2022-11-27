@@ -105,10 +105,31 @@ def var_gdp():
 
     return x, y
 
+def var_unemployment():
+    with open('models/model_pickle', 'rb') as f:
+        model = pickle.load(f)
+
+    local_data = [2011, 13271, 129, 1.934765, 3.675000]
+    y = []
+    x = []
+
+    while local_data[4] < 9.608333:
+        x.append(local_data[4])
+        data = pd.DataFrame(local_data)
+        data = data.values.reshape(1,-1)
+        pred = model.predict(data)
+        
+        y.append(pred[0])
+
+
+        local_data[4] += 0.001
+
+    return x, y
+
 
 
 if __name__ == '__main__':
-    x, y = var_gdp()
+    x, y = var_unemployment()
     #print(x)
     #print(y)
     print(len(y))
