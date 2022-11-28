@@ -245,6 +245,27 @@ def compare_var_unemployment(x, y):
     plt.savefig(filename)
     plt.close()
 
+def comapre_var_year(x, y):
+    x = np.array(x)
+    y = np.array(y)
+
+    data = pd.read_csv('data_processed\output.csv')
+
+    y2 = data['violent_crime_sum']
+    y2 = y2.to_numpy()
+    x2 = data['year']
+    x2 = x2.to_numpy()
+
+    plot1 = plt.subplot2grid((1, 2), (0, 0))
+    plot2 = plt.subplot2grid((1, 2), (0, 1))
+
+    plot1.scatter(x2,y2)
+    plot2.scatter(x,y)
+    plt.title("year vs violent crime \n actual(left) estimated (right)")
+    filename = 'visuals/year_vs_violent_crime_compared.png'
+    plt.savefig(filename)
+    plt.close()
+
 
 if __name__ == '__main__':
     gdp_data = get_gdp_data()
@@ -279,6 +300,8 @@ if __name__ == '__main__':
     x, y = var_gdp()
     compare_var_gdp(x, y)
     x, y = var_prop_crime()
-    compare_prop_crime(x, y)'''
+    compare_prop_crime(x, y)
     x, y = var_unemployment()
-    compare_var_unemployment(x,y)
+    compare_var_unemployment(x,y)'''
+    x, y = var_year()
+    comapre_var_year(x, y)
