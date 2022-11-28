@@ -3,6 +3,7 @@ import numpy as np
 from wf_dataprocessing2 import *
 from wf_ml_evaluation import func
 from wf_ml_prediction import var_gdp, var_prop_crime, var_student_pop, var_unemployment, var_year
+import pickle
 
 
 global_years_names_list = [2000, 2001 ,2002 ,2003 ,2004 ,2005 ,2006 ,2007 ,2008 ,2009 ,2010 ,2011 ,2012 ,2013 ,2014 ,2015 ,2016 ,2017 ,2018 ,2019]
@@ -159,6 +160,29 @@ def make_var_unemployment(x, y):
     plt.savefig(filename)
     plt.close()
 
+def compare_studet_prop(x, y):
+    x = np.array(x)
+    y = np.array(y)
+
+    data = pd.read_csv('data_processed\output.csv')
+
+    y2 = data['violent_crime_sum']
+    y2 = y2.to_numpy()
+    x2 = data['student_pop_sum']
+    x2 = x2.to_numpy()
+
+    plot1 = plt.subplot2grid((1, 2), (0, 0))
+    plot2 = plt.subplot2grid((1, 2), (0, 1))
+
+    plot1.scatter(x2,y2)
+    plot2.scatter(x,y)
+    plt.title("popuation vs violent crime \n actual(left) estimated (right)")
+    filename = 'visuals/unemployment_vs_violent_crime_compared.png'
+    plt.savefig(filename)
+    plt.close()
+   
+
+    plt.show()
 
 
 if __name__ == '__main__':
@@ -175,7 +199,7 @@ if __name__ == '__main__':
     #property_vs_umemployment(property_crime_data, unemplyment_data)
     
     func()
-
+    '''
     x, y = var_year()
     make_var_year(x, y)
 
@@ -186,4 +210,7 @@ if __name__ == '__main__':
     x, y = var_prop_crime()
     make_var_prop_crime(x, y)
     x, y = var_unemployment()
-    make_var_unemployment(x, y)
+    make_var_unemployment(x, y)'''
+
+    x, y = var_student_pop()
+    compare_studet_prop(x, y)
