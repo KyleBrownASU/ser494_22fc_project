@@ -14,7 +14,7 @@ def func():
     y= data['violent_crime_sum']
     x = data.drop('violent_crime_sum', axis= 1)
 
-    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=.2, random_state= 100)
+    x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=.2)
 
     y_train_pred, y_test_pred, model = train(x_train, x_test, y_train, y_test)
 
