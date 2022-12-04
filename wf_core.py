@@ -1,5 +1,6 @@
 from wf_dataprocessing import *
 from wf_visualization import *
+from wf_ml_evaluation import func
 
 
 if __name__ == '__main__':
@@ -15,4 +16,17 @@ if __name__ == '__main__':
     property_vs_gdp(property_crime_data, gdp_data)
     property_vs_umemployment(property_crime_data, unemplyment_data)
 
+    func()
+
+    
+    x, y = var_student_pop()
+    compare_studet_prop(x, y)
+    x, y = var_gdp()
+    compare_var_gdp(x, y)
+    x, y = var_prop_crime()
+    compare_prop_crime(x, y)
+    x, y = var_unemployment()
+    compare_var_unemployment(x,y)
+    x, y = var_year()
+    comapre_var_year(x, y)
     
